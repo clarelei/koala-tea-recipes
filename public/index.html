@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FoodMatters!</title>   
+    <link rel="stylesheet" href="css/style.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Dosis:200" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <script src="js/jquery.js"> </script>
+    <script src="js/jquery-migrate-1.2.1.min.js"></script>
+    <script src="js/result.js" defer></script>
+    <script src="js/about.js" defer></script>
+    <script src="js/forum.js" defer></script>
+    <!-- <script src="js/resources.js" defer></script> -->
+    <script src="js/database.js" defer></script>
+    <script src="js/app.js" defer></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/fetchData.js" defer></script>
+    <script src="js/fetchForum.js" defer></script>
+    <script src="js/animationscroll.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/dataTables.jqueryui.min.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.15/js/dataTables.jqueryui.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/1.3.1/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/1.3.1/js/buttons.jqueryui.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.27/build/vfs_fonts.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.27/build/pdfmake.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/1.3.1/js/buttons.html5.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/1.3.1/js/buttons.print.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/1.3.1/js/buttons.colVis.min.js"></script>
+    <script id="gs-sdk" src='//www.buildquickbots.com/botwidget/v3/demo/static/js/sdk.js?v=3' key="ebf1e258-1c21-4a2e-b0fe-71fbcdf3b6e8" ></script>
+    </head>
+
+      <body>
+        <div class = "navBar">
+          <div class = "logobutton" id = "logoButton"> 
+            <img src = "images/foodmatters.jpg" style = "width:270px;height:80px;margin-top:15px;"></img> 
+          </div>
+          <div class = "button" id = "databaseButton" > SEARCH  </div>
+          <div class = "button" id = "forumButton">  FAQ </div>
+          <div class = "button" id = "aboutButton"> ABOUT  </div>
+        </div>
+
+        <div id =  "forum" class="inactive">
+          <div id = "forum-table-cont">
+            <section>
+              <input class="animate" type="radio" name="question" id="q1"/>
+              <label class="animate" for="q1" style="font-weight: bolder; font-size: 200%;">Q: What is FoodMatters?</label>
+              <p class="response animate" style="font-weight: bolder; font-size: 100%;">A: FoodMatters is a resource used to provide ideas and recipe suggestions to make the most out of every meal in hopes of eliminating food waste.</p>
+
+              <input class="animate" type="radio" name="question" id="q2"/>
+              <label class="animate" for="q2" style="font-weight: bolder; font-size: 200%;">Q: What is GupShup?</label>
+              <p class="response animate" style="font-weight: bolder; font-size: 100%;">A: GupShup is a Bot platform that enables developers to quickly and easily build, test, deploy and manage chat bots across all messaging channels.</p>
+
+              <input class="animate" type="radio" name="question" id="q3"/>
+              <label class="animate" for="q3" style="font-weight: bolder; font-size: 200%;">Q: Where do our recipes come from?</label>
+              <p class="response animate" style="font-weight: bolder; font-size: 100%;">A: Currently this data is manually gathered from the web. In the future, we hope to implement programmatic data retrieving in order to make the process of gathering recipes more efficient.</p>
+
+              <!-- <input class="animate" type="radio" name="question" id="q4"/>
+              <label class="animate" for="q4">Q: What can I use MarkerVille for?</label>
+              <p class="response animate">A: Markerville can be used to find information about biomarkers quickly and easily. You can look up a biomarker in the search bar, and information about medium, type, and associated conditions will be displayed in a table. Instead of having to read through many research papers for this information, you can just use Markerville.</p> -->
+            </section>
+          </div>
+
+          <div id = "message-post-cont">
+            <!-- onsubmit="return false" -->
+            <form id="forumForm">
+              <input type = "text" id = "message-post"  placeholder="Question here"onblur="this.placeholder='Question here'" onfocus="this.placeholder = ''"> </input>
+              <br><br><button type="button" class="faqButton" onclick="alert('Your question was submitted!')">Submit!</button><br><br>
+            </form>
+          </div>
+        </div>
+
+        <div id =  "aboutPage" class="inactive">
+          <div class="module">
+            <header>
+              <h1 style="margin-left:100px;">
+                <strong>ABOUT</strong><br>the most comprehensive index of recipes for using every last bit of food
+              </h1>
+            </header>
+          </div>
+
+          <div class="listing">
+            <article style="font-size:180%; margin-left:200px; margin-right:200px; text-align:center; line-height: 1.25;">FoodMatters is a web-hosted database that displays recipes and uses for leftover food scraps and expired foods, and allows users to search and edit existing information, while adding new entries of their own. Developed at <a href="http://pixelhacks.com/">PixelHacks II</a> 2018 Hackathon. Built with Node.js, Heroku, MongoDB, and GupShup. Thanks for visiting! More coming soon.<br><br><br></article>
+          </div>
+          <div id = "resourcesPic">
+            <a href="https://nodejs.org/en/"><img id = "nodejs" src = "images/nodejs.png"></img></a>
+            <a href="http://pixelhacks.com/"><img id = "heroku" src = "images/heroku.jpg"></img></a>
+            <a href="https://www.mongodb.com/"><img id = "mongodb" src = "images/mongodb.jpg"></img></a>
+            <a href="https://www.gupshup.io/developer/home"><img id = "gupshup" src = "images/gupshup.jpg"></img></a>
+          </div>
+          <br>
+          <br>
+          <h1 style="font-size:200%; margin: 0% 8% 1%;"><strong>Developed By:</strong></h1>
+          <div class="main-container">
+            <div class="container cf">
+              <!-- Course 5 -->
+              <div class="animation-element bounce-up cf">
+                <div class="subject development">
+                  <div class="category-color"></div>
+                  <div class="icon"><i class="fa fa-cogs"></i></div>
+                  <h3 class="title"><img id="aboutPic" src="images/clare.png"></h3>
+                  <div class="content" style="text-align: center; font-weight: bolder; font-size: 120%;">Clare Lei</div>
+                </div>
+              </div>
+              <!-- Course 6 -->
+              <div class="animation-element bounce-up cf">
+                <div class="subject development">
+                  <div class="category-color"></div>
+                  <div class="icon"><i class="fa fa-cogs"></i></div>
+                  <h3 class="title"><img id="aboutPic" src="images/carrie.jpg"></h3>
+                  <div class="content" style="text-align: center; font-weight: bolder; font-size: 120%;">Carrie Lei</div>
+                </div>
+              </div>
+            </div>
+          </div>
+            
+          <script>
+            var $animation_elements = $('.animation-element');
+            var $window = $(window);
+
+            function check_if_in_view() {
+              var window_height = $window.height();
+              var window_top_position = $window.scrollTop();
+              var window_bottom_position = (window_top_position + window_height);
+
+              $.each($animation_elements, function() {
+                var $element = $(this);
+                var element_height = $element.outerHeight();
+                var element_top_position = $element.offset().top;
+                var element_bottom_position = (element_top_position + element_height);
+
+                //check to see if this current container is within viewport
+                if ((element_bottom_position >= window_top_position) &&
+                  (element_top_position <= window_bottom_position)) {
+                  $element.addClass('in-view');
+                } else {
+                  $element.removeClass('in-view');
+                }
+              });
+            }
+
+            $window.on('scroll resize', check_if_in_view);
+            $window.trigger('scroll');
+          </script>
+        </div>
+          
+        <div id = "result" class="inactive">
+          <div id = "result-table-cont">
+
+            <table id ="testid" class="display" cellspacing="0" width="100%">  
+              <thead>
+                <tr>
+                  <th> Food
+                  <th> Recipe
+                </tr>
+              </thead>
+              <tbody>
+              </tbody> 
+            </table>
+
+            <script type="text/javascript">
+              $(document).ready( function () {
+                $('#testid').DataTable();
+              } );
+            </script>
+                 
+            <script type="text/javascript">
+              var table = $('#testid').DataTable( {
+                processing: true,
+                'language':{ 
+                  "loadingRecords": "&nbsp;",
+                  "processing": "Loading..."
+                },
+                autoWidth: false,
+                buttons: [ 'copy', 'excel', 'colvis' ]
+              } );
+              table.buttons().container()
+              .insertBefore( '#testid_filter' );
+            </script>
+        
+          </div>
+        </div>
+
+        <div id = "database">
+          <br><br><br><br><br>
+          <p style="font-size:100%;"> DEVELOPED AT PIXELHACKS II 2018</p>
+          <br>
+          <p style="font-size:400%;"> F O O D M A T T E R S !</p>
+          <div>
+            <!-- onsubmit="return false" -->
+            <form id="searchForm">
+              <input type= "text" id="word-input" placeholder="ENTER LEFTOVER FOOD"onblur="this.placeholder='ENTER LEFTOVER FOOD'" onfocus="this.placeholder = ''"/>
+              <form>
+                <br><br><button class="browseButton">See Suggested Recipes</button>
+              </form>
+            </form>
+          </div>
+        </div>
+
+<!--         <div id =  "resourcesPage" class="inactive">
+            <p>Markerville is a web-hosted database that displays information about biomarkers.<br>We are powered by Snorkel, an NLP pipeline package written in Python and developed by Stanford's Info Lab.<br>Developed by <a href="http://mallicklab.stanford.edu/">Mallick Lab</a> at the Canary Center for Cancer Early Detection, Stanford University School of Medicine.<br>Built with Node.js, Express, and MySQL.</p>
+            <div id = "resourcesPic">
+              <a href="https://github.com/HazyResearch/snorkel"><img id = "snorkel" src = "images/snorkel.png"></img></a>
+              <a href="https://canarycenter.stanford.edu/"><img id = "canarylink" src = "images/canary.png"></img></a>
+              <a href="https://nodejs.org/en/"><img id = "nodejs" src = "images/nodejs.png"></img></a>
+            </div>
+        </div> -->
+
+        <div class="footer">
+          <br>
+          <div id="canary" class="slideUp">
+            <a href="https://mlh.io/"><img src="images/MLH.png" class="canary">
+            <p><a href="http://pixelhacks.com/">PIXELHACKS II</a> </p>
+            <script>
+            var $animation_elements = $('.animation-element');
+            var $window = $(window);
+
+            function check_if_in_view() {
+              var window_height = $window.height();
+              var window_top_position = $window.scrollTop();
+              var window_bottom_position = (window_top_position + window_height);
+
+              $.each($animation_elements, function() {
+                var $element = $(this);
+                var element_height = $element.outerHeight();
+                var element_top_position = $element.offset().top;
+                var element_bottom_position = (element_top_position + element_height);
+
+                //check to see if this current container is within viewport
+                if ((element_bottom_position >= window_top_position) &&
+                  (element_top_position <= window_bottom_position)) {
+                  $element.addClass('in-view');
+                } else {
+                  $element.removeClass('in-view');
+                }
+              });
+            }
+
+            $window.on('scroll resize', check_if_in_view);
+            $window.trigger('scroll');
+          </script>
+        </div>
+        <!-- <script>
+          $(window).scroll(function() {
+            $('#canary').each(function(){
+              var imagePos = $(this).offset().top;
+              var topOfWindow = $(window).scrollTop();
+              if (imagePos < topOfWindow+400) {
+                $(this).addClass("slideUp");
+              }
+            });
+          });
+        </script> -->
+  </body>
+</html>
