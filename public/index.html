@@ -14,7 +14,6 @@
     <script src="js/result.js" defer></script>
     <script src="js/about.js" defer></script>
     <script src="js/forum.js" defer></script>
-    <!-- <script src="js/resources.js" defer></script> -->
     <script src="js/database.js" defer></script>
     <script src="js/app.js" defer></script>
     <script src="js/main.js" defer></script>
@@ -61,9 +60,6 @@
               <label class="animate" for="q3" style="font-weight: bolder; font-size: 200%;">Q: Where do our recipes come from?</label>
               <p class="response animate" style="font-weight: bolder; font-size: 100%;">A: Currently this data is manually gathered from the web. In the future, we hope to implement programmatic data retrieving in order to make the process of gathering recipes more efficient.</p>
 
-              <!-- <input class="animate" type="radio" name="question" id="q4"/>
-              <label class="animate" for="q4">Q: What can I use MarkerVille for?</label>
-              <p class="response animate">A: Markerville can be used to find information about biomarkers quickly and easily. You can look up a biomarker in the search bar, and information about medium, type, and associated conditions will be displayed in a table. Instead of having to read through many research papers for this information, you can just use Markerville.</p> -->
             </section>
           </div>
 
@@ -99,7 +95,6 @@
           <h1 style="font-size:200%; margin: 0% 8% 1%;"><strong>Developed By:</strong></h1>
           <div class="main-container">
             <div class="container cf">
-              <!-- Course 5 -->
               <div class="animation-element bounce-up cf">
                 <div class="subject development">
                   <div class="category-color"></div>
@@ -108,7 +103,7 @@
                   <div class="content" style="text-align: center; font-weight: bolder; font-size: 120%;">Clare Lei</div>
                 </div>
               </div>
-              <!-- Course 6 -->
+
               <div class="animation-element bounce-up cf">
                 <div class="subject development">
                   <div class="category-color"></div>
@@ -195,22 +190,13 @@
           <div>
             <!-- onsubmit="return false" -->
             <form id="searchForm">
-              <input type= "text" id="word-input" placeholder="ENTER LEFTOVER FOOD"onblur="this.placeholder='ENTER LEFTOVER FOOD'" onfocus="this.placeholder = ''"/>
+              <input type= "text" id="word-input" placeholder="ENTER FOOD ITEM"onblur="this.placeholder='ENTER FOOD ITEM'" onfocus="this.placeholder = ''"/>
               <form>
-                <br><br><button class="browseButton">See Suggested Recipes</button>
+                <br><br><button class="browseButton">See Recipes</button>
               </form>
             </form>
           </div>
         </div>
-
-<!--         <div id =  "resourcesPage" class="inactive">
-            <p>Markerville is a web-hosted database that displays information about biomarkers.<br>We are powered by Snorkel, an NLP pipeline package written in Python and developed by Stanford's Info Lab.<br>Developed by <a href="http://mallicklab.stanford.edu/">Mallick Lab</a> at the Canary Center for Cancer Early Detection, Stanford University School of Medicine.<br>Built with Node.js, Express, and MySQL.</p>
-            <div id = "resourcesPic">
-              <a href="https://github.com/HazyResearch/snorkel"><img id = "snorkel" src = "images/snorkel.png"></img></a>
-              <a href="https://canarycenter.stanford.edu/"><img id = "canarylink" src = "images/canary.png"></img></a>
-              <a href="https://nodejs.org/en/"><img id = "nodejs" src = "images/nodejs.png"></img></a>
-            </div>
-        </div> -->
 
         <div class="footer">
           <br>
@@ -246,16 +232,6 @@
             $window.trigger('scroll');
           </script>
         </div>
-        <!-- <script>
-          $(window).scroll(function() {
-            $('#canary').each(function(){
-              var imagePos = $(this).offset().top;
-              var topOfWindow = $(window).scrollTop();
-              if (imagePos < topOfWindow+400) {
-                $(this).addClass("slideUp");
-              }
-            });
-          });
-        </script> -->
+
   </body>
 </html>
